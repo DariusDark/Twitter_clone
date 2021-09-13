@@ -41,9 +41,11 @@ const likePost = (updatedData) => {
     }).then(res => res.json())
 }
 
-const deletePost = (id) => {
-    return fetch(`${baseUrl}posts/${id}`, {
-        method: 'DELETE'
+const deletePost = (updatedData) => {
+    return fetch(`${baseUrl}postRemove`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedData)
     })
         .then(res => res.json())
 }

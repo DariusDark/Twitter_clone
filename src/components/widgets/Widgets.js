@@ -15,7 +15,7 @@ function Widgets() {
 
             <div className="widgets__container">
 
-                {/* <TwitterTimelineEmbed sourceType="profile" screenName="AlifBank" options={{ height: 400 }}/> */}
+                <TwitterTimelineEmbed sourceType="profile" screenName="AlifBank" options={{ height: 400 }}/>
             </div>
         </div>
     )

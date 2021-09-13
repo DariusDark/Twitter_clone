@@ -28,10 +28,6 @@
     font-size: 16px;
 }
 
-.tweet-box__input-image {
-
-}
-
 .tweet-box__tweet-button {
     background-color: var(--twitter-color) !important;
     color: white !important;

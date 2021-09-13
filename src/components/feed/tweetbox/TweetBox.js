@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import { Avatar, Button } from '@material-ui/core'
+import React, {useState} from 'react';
+import { Avatar, Button } from '@material-ui/core';
 import './TweetBox.css';
 
 function TweetBox({createFunc}) {
@@ -19,7 +19,6 @@ function TweetBox({createFunc}) {
                     <Avatar className="tweet-box__user-avatar" src="https://lh3.googleusercontent.com/ogw/ADea4I4EQFZhWsFG4jyXidKR7XNHTzs6axq1T34Oqd_6mw=s83-c-mo" />
                     <input value={content} onChange={e => setContent(e.target.value)} className="tweet-box__input" placeholder="What's happening?" type="text" />
                 </div>
-                <input className="tweet-box__input-image" placeholder="Enter image URL" type="text" />
                 <Button onClick={create} className="tweet-box__tweet-button">Tweet</Button>
             </form>
         </div>

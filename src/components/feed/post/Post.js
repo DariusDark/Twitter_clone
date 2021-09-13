@@ -6,14 +6,21 @@ import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import RepeatIcon from "@material-ui/icons/Repeat";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import PublishIcon from "@material-ui/icons/Publish";
+import Delete from '@material-ui/icons/DeleteOutlined';
 
-function Post({ post, likeFunc }) {
+function Post({ post, likeFunc, deleteFunc }) {
     function likeHandler() {
         const updatedData = {
             id: post.id,
             likes: ++post.likes
         }
         likeFunc(updatedData)
+    }
+    function deleteHandler() {
+        const updatedData = {
+            id: post.id
+        }
+        deleteFunc(updatedData);
     }
     return (
         <div className="post">
@@ -30,6 +37,7 @@ function Post({ post, likeFunc }) {
                                 &nbsp;<span className="post__user-id">@darius_dark</span>
                             </span>
                         </h3>
+                        <button className="post__delete" onClick={deleteHandler}><Delete fontSize="medium" /></button>
                     </div>
                     <div className="post__header-description">
                         <p>{post.content}</p>
@@ -39,7 +47,10 @@ function Post({ post, likeFunc }) {
                 <div className="post__footer">
                     <ChatBubbleOutlineIcon fontSize="small" />
                     <RepeatIcon fontSize="small" />
-                    <FavoriteBorderIcon fontSize="small" onClick={likeHandler} />
+                    <div className="post__footer-likes">
+                        <FavoriteBorderIcon className="likes-icon" fontSize="small" onClick={likeHandler} />
+                        <span className="likes">{post.likes}</span>
+                    </div>
                     <PublishIcon fontSize="small" />
                 </div>
             </div>

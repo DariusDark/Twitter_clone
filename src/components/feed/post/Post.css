@@ -13,7 +13,7 @@
 .post__image {
     border-radius: 20px;
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     object-fit: cover;
     margin-bottom: 10px;
     border: 1px solid rgb(207, 217, 222);
@@ -25,8 +25,9 @@
 .post__header-text {
     margin-bottom: 5px;
 }
-.post__header-text *{
+.post__header-text {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 .post__user-id {
@@ -47,4 +48,17 @@
     display: flex;
     max-width: 435px;
     justify-content: space-between;
+}
+
+.post__delete {
+    background: transparent;
+}
+
+.post__footer-likes {
+    display: flex;
+    align-items: center;
+}
+
+.likes-icon {
+    margin-right: 5px;
 }

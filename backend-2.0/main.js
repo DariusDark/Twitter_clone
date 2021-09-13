@@ -94,7 +94,6 @@ app.post('/api/posts', async (req, res) => {
 app.put('/api/postLikes', async (req, res) => {
   try {
     const { body } = req;
-    console.log(body)
     const [post] = await execute(client, async session => {
       const table = await session.getDefaultSchema().getTable('posts');
       await table.update().set('likes', body.likes).where('id = :id AND removed != true').bind('id', body.id).execute();
@@ -119,10 +118,9 @@ app.put('/api/postLikes', async (req, res) => {
   }
 });
 
-app.post('/api/postRemove', async (req, res) => {
+app.delete('/api/postRemove', async (req, res) => {
   try {
     const { body } = req;
-    console.log(body)
     const [post] = await execute(client, async session => {
       const table = await session.getDefaultSchema().getTable('posts');
       await table.update().set('removed', true).where('id = :id AND removed != true').bind('id', body.id).execute();
@@ -150,7 +148,6 @@ app.post('/api/postRemove', async (req, res) => {
 app.post('/api/postRestore', async (req, res) => {
   try {
     const { body } = req;
-    console.log(body)
     const [post] = await execute(client, async session => {
       const table = await session.getDefaultSchema().getTable('posts');
       await table.update().set('removed', false).where('id = :id AND removed != false').bind('id', body.id).execute();

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import './Feed.css';
 import TweetBox from './tweetbox/TweetBox.js'; 
 import Post from './post/Post.js';
-import { getPosts, addPost, likePost } from '../../services/postsServices';
+import { getPosts, addPost, likePost, deletePost } from '../../services/postsServices';
 
 function Feed() {
     const [posts, setPosts] = useState([])
@@ -27,6 +27,15 @@ function Feed() {
         })
     }
 
+    function deleteEdit(updatedData) {
+        deletePost(updatedData).then(res => {
+            const currPostIndex = posts.findIndex((item) => item.id === res.id);
+            const postsCopy = [...posts];
+            postsCopy.splice(currPostIndex, 1);
+            setPosts([...postsCopy]);
+        })
+    }
+
     return (
         <div className="feed">
             {/* Header */}
@@ -40,7 +49,7 @@ function Feed() {
 
             {/* Post */}
 
-            {posts.map(item => <Post key={item.id} post={item} likeFunc={likeEdit} />)}
+            {posts.map(item => <Post key={item.id} post={item} likeFunc={likeEdit} deleteFunc={deleteEdit} />)}
         </div>
     )
 }
