@@ -1,0 +1,29 @@
+.app {
+  max-width: 1300px;
+  margin: 0px auto;
+  padding: 0px 10px;
+  min-height: 100vh;
+}
+.wrapper {
+  display: flex;
+}
+
+.sidebar,
+.feed,
+.widgets {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.feed::-webkit-scrollbar,
+.sidebar::-webkit-scrollbar,
+.widgets::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.feed {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
