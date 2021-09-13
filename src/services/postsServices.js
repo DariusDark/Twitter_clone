@@ -1,11 +1,14 @@
 const baseUrl = 'http://localhost:9999/api/'
 
+const axios = async (url, params) => {
+    let result = null;
+    await fetch(url, {...params}).then(res => res.json()).then(json => result = json)
+    return result
+}
+
 const getPosts = () => {
-    return fetch(`${baseUrl}posts`, {
-        method: 'GET'
-    })
-        .then(res => res.json())
-        .then(json => json)
+    let result = axios(`${baseUrl}posts`, { method: 'GET' })
+    return result
 }
 
 const getById = (id) => {
@@ -23,15 +26,25 @@ const addPost = (newPost) => {
 }
 
 const updatePost = (updateData) => {
-    return fetch(`${baseUrl}posts`, {
+    return fetch(`${baseUrl}posts/${updateData.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updateData)
     }).then(res => res.json())
 }
 
+const likePost = (updatedData) => {
+    return fetch(`${baseUrl}postLikes`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedData)
+    }).then(res => res.json())
+}
+
 const deletePost = (id) => {
-    return fetch(`${baseUrl}posts/${id}`)
+    return fetch(`${baseUrl}posts/${id}`, {
+        method: 'DELETE'
+    })
         .then(res => res.json())
 }
 
@@ -41,4 +54,5 @@ export {
     addPost,
     updatePost,
     deletePost,
+    likePost,
 }
