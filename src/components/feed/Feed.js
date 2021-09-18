@@ -57,14 +57,13 @@ function Feed() {
             <TweetBox createFunc={createPost} />
 
             {/* Post */}
-
-            {posts.map(item => <Post
+            {posts.length ? posts.map(item => <Post
                 key={item.id}
                 post={item}
                 likeFunc={likeEdit}
                 deleteFunc={deleteEdit}
                 updateFunc={contentEdit}
-            />)}
+            />) : <h2 className="feed__posts-warning">There is no posts in database</h2>}
         </div>
     )
 }

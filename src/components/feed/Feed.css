@@ -22,3 +22,9 @@
     font-size: 20px;
     font-weight: 800;
 }
+
+.feed__posts-warning {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+}
