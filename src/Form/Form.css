@@ -1,0 +1,77 @@
+.form {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form__title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #464c50;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form__column {
+    min-width: 260px;
+    max-width: 260px;
+}
+.form__input-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.form__user-name-input,
+.form__user-password-input {
+    width: 100%;
+    border: 1px solid var(--twitter-color);
+    border-radius: 30px;
+    padding: 8px 14px;
+}
+
+.form__button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.form__button-submit {
+    padding: 5px 0px;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #fff;
+    background: var(--twitter-color);
+    border-radius: 30px;
+    display: flex;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+}
+.form__button-submit:hover {
+    background: #7dccfd;
+}
+.form__button-submit:active {
+    background: #4ba3da;
+}
+.form__text {
+    white-space: nowrap;
+    text-align: center;
+}
+.form__anchor {
+    background: transparent;
+    color: var(--twitter-color);
+}
+
+.form__anchor:hover {
+    text-decoration: underline;
+}
+.form__anchor:active {
+    color: #4093c7;
+
+}

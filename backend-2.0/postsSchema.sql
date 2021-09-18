@@ -1,5 +1,6 @@
 CREATE TABLE posts (
     id INT PRIMARY KEY AUTO_INCREMENT,
+    creatorId INT NOT NULL,
     content TEXT NOT NULL,
     likes INT NOT NULL DEFAULT 0,
     removed BOOL NOT NULL DEFAULT FALSE,

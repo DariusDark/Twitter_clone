@@ -9,12 +9,14 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { Button } from "@material-ui/core";
-
+import { Link } from 'react-router-dom';
 
 function Sidebar() {
     return (
         <div className="sidebar">
-            <TwitterIcon className="sidebar__twitter-icon"/>
+            <Link to="/home">
+                <TwitterIcon className="sidebar__twitter-icon" />
+            </Link>
             <SidebarOption active Icon={HomeIcon} text="Home" />
             <SidebarOption Icon={SearchIcon} text="Explore" />
             <SidebarOption Icon={NotificationsNoneIcon} text="Notifications" />

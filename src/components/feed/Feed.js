@@ -1,16 +1,18 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import './Feed.css';
-import TweetBox from './tweetbox/TweetBox.js'; 
+import TweetBox from './tweetbox/TweetBox.js';
 import Post from './post/Post.js';
-import { getPosts, addPost, likePost, deletePost } from '../../services/postsServices';
+import { getPosts, addPost, likePost, deletePost, updateContent } from '../../services/postsServices';
 
 function Feed() {
+
     const [posts, setPosts] = useState([])
     useEffect(() => {
         getPosts().then(res => {
             setPosts(res)
         })
     }, [])
+
 
     function createPost(newPost) {
         addPost(newPost).then((res) => {
@@ -22,7 +24,6 @@ function Feed() {
             const currPostIndex = posts.findIndex((item) => item.id === res.id);
             const postsCopy = [...posts];
             postsCopy.splice(currPostIndex, 1, res);
-            console.log(postsCopy)
             setPosts([...postsCopy]);
         })
     }
@@ -36,12 +37,20 @@ function Feed() {
         })
     }
 
+    function contentEdit(updatedData) {
+        updateContent(updatedData).then(res => {
+            const currPostIndex = posts.findIndex((item) => item.id === res.id);
+            const postsCopy = [...posts];
+            postsCopy.splice(currPostIndex, 1, res);
+            setPosts([...postsCopy]);
+        })
+    }
+
     return (
         <div className="feed">
             {/* Header */}
             <div className="feed__header">
-            <h2 className="feed__title">Home</h2>
-
+                <h2 className="feed__title">Home</h2>
             </div>
 
             {/* TweetBox */}
@@ -49,7 +58,13 @@ function Feed() {
 
             {/* Post */}
 
-            {posts.map(item => <Post key={item.id} post={item} likeFunc={likeEdit} deleteFunc={deleteEdit} />)}
+            {posts.map(item => <Post
+                key={item.id}
+                post={item}
+                likeFunc={likeEdit}
+                deleteFunc={deleteEdit}
+                updateFunc={contentEdit}
+            />)}
         </div>
     )
 }

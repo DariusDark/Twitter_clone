@@ -1,21 +1,11 @@
-const baseUrl = 'http://localhost:9999/api/'
-
-const axios = async (url, params) => {
-    let result = null;
-    await fetch(url, {...params}).then(res => res.json()).then(json => result = json)
-    return result
-}
+const baseUrl = 'http://localhost:9999/api/';
 
 const getPosts = () => {
-    let result = axios(`${baseUrl}posts`, { method: 'GET' })
-    return result
-}
-
-const getById = (id) => {
-    return fetch(`${baseUrl}posts/${id}`, {
-        method: 'GET',
+    return fetch(`${baseUrl}posts`, {
+        method: 'GET'
     }).then(res => res.json())
-}
+};
+
 
 const addPost = (newPost) => {
     return fetch(`${baseUrl}posts`, {
@@ -23,7 +13,7 @@ const addPost = (newPost) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newPost)
     }).then(res => res.json())
-}
+};
 
 const updatePost = (updateData) => {
     return fetch(`${baseUrl}posts/${updateData.id}`, {
@@ -31,7 +21,7 @@ const updatePost = (updateData) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updateData)
     }).then(res => res.json())
-}
+};
 
 const likePost = (updatedData) => {
     return fetch(`${baseUrl}postLikes`, {
@@ -39,7 +29,7 @@ const likePost = (updatedData) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedData)
     }).then(res => res.json())
-}
+};
 
 const deletePost = (updatedData) => {
     return fetch(`${baseUrl}postRemove`, {
@@ -48,13 +38,21 @@ const deletePost = (updatedData) => {
         body: JSON.stringify(updatedData)
     })
         .then(res => res.json())
-}
+};
+
+const updateContent = (updatedData) => {
+    return fetch(`${baseUrl}updateContent`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedData)
+    }).then(res => res.json())
+};
 
 export {
     getPosts,
-    getById,
     addPost,
     updatePost,
     deletePost,
     likePost,
+    updateContent
 }
