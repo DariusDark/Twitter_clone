@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Signin from './Signin/Signin.js';
-import Signup from './Signup/Signup.js';
+import Signin from './signin/Signin.js';
+import Signup from './signup/Signup.js';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './Form.css';
