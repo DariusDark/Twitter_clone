@@ -36,22 +36,39 @@ function Signup({ formTypeChange }) {
                         placeholder="Enter your name to Sign up" />
                 </div>
                 <div className="form__input-container">
-                    <input className="form__user-password-input" onInput={(event) => {
-                        setPassValue(event.target.value);
-                    }} value={passValue} type="password" placeholder="Enter new password" />
+                    <input
+                        className="form__user-password-input"
+                        onInput={(event) => {
+                            setPassValue(event.target.value);
+                        }}
+                        value={passValue}
+                        type="password"
+                        placeholder="Enter new password"
+                    />
                 </div>
                 <div className="form__button">
-                    <button className="form__button-submit" type="submit" onClick={handleClick}>Sign Up</button>
+                    <button
+                        className="form__button-submit"
+                        type="submit"
+                        onClick={handleClick}>
+                        Sign Up
+                    </button>
                 </div>
             </div>
-            <span className="form__text">Allready have account?&nbsp;
-                <button className="form__anchor"
+            <span className="form__text">
+                Allready have account?&nbsp;
+                
+                <button
+                    className="form__anchor"
                     onClick={(event) => {
                         event.preventDefault()
                         formTypeChange('signin')
-                    }}>Click Here
+                    }}>
+                    Click Here
                 </button>
-            &nbsp;to log in</span>
+
+                &nbsp;to log in
+            </span>
         </div>
     )
 }

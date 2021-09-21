@@ -14,10 +14,10 @@ import { Link } from 'react-router-dom';
 function Sidebar() {
     return (
         <div className="sidebar">
-            <Link to="/home">
+            <Link to="/">
                 <TwitterIcon className="sidebar__twitter-icon" />
             </Link>
-            <SidebarOption active Icon={HomeIcon} text="Home" />
+            <SidebarOption active={true} Icon={HomeIcon} text="Home" />
             <SidebarOption Icon={SearchIcon} text="Explore" />
             <SidebarOption Icon={NotificationsNoneIcon} text="Notifications" />
             <SidebarOption Icon={MailOutlineIcon} text="Messages" />

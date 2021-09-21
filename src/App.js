@@ -15,18 +15,16 @@ function App() {
   });
   return (
     <div className="app">
+      {loggedIn ? null : <Redirect to='/' />}
       <div className="wrapper">
-        {/* Sidebar */}
+
         <Sidebar />
 
-        {/* Feed */}
         <Feed />
 
-        {/* Widgets */}
         <Widgets />
 
       </div>
-      {loggedIn ? null : <Redirect to='/' />}
     </div>
   )
 }

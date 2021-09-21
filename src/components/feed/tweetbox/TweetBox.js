@@ -6,7 +6,8 @@ import { useSelector } from 'react-redux';
 function TweetBox({ createFunc }) {
     const [content, setContent] = useState('')
     const user = useSelector(state => state.user);
-    function create() {
+    function create(event) {
+        event.preventDefault();
         if (content.trim()) {
             const newPost = {
                 content: content.trim(),
@@ -18,7 +19,11 @@ function TweetBox({ createFunc }) {
     }
     return (
         <div className="tweet-box">
-            <form className="tweet-box__form">
+            <form 
+            className="tweet-box__form" 
+            onSubmit={(event) => {
+                event.preventDefault();
+            }}>
                 <div className="tweet-box__form-container">
                     <Avatar
                         className="tweet-box__user-avatar"
